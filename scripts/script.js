@@ -1,7 +1,6 @@
 var userHealth = 40;
 var enemyHealth = 10;
 var wins = 0;
-var playing = true;
 
 var play = prompt("do u wanna play?");
 
@@ -15,6 +14,11 @@ while (play === "yes") {
       break;
     }
 	
+	if (userHealth <= 0) {
+		console.log("u lost");
+		break;
+	}
+	
     userHealth -= Math.floor(Math.random() * 2) + 1;
 	enemyHealth -= Math.floor(Math.random() * 2) + 1;
   	console.log(name + " has " + userHealth + " health left.");
@@ -25,5 +29,4 @@ while (play === "yes") {
       enemyHealth = 10;
       console.log("u won a battle");
     }
-	
 }
