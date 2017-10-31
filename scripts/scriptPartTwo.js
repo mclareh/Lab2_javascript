@@ -1,18 +1,24 @@
-var userHealth = 40;
-var enemyHealth = 10;
-var wins = 0;
 var playing = true;
+
 
 function startGame() {
   var play = prompt("do u wanna play?");
 	if (play === "yes") {
-    } startCombat();
+		var name = prompt("what is ur name?");
+    	startCombat(name);
+	} else {
+		console.log("ok");
+	}
 } startGame();
 
-function startCombat() {
-	var name = prompt("what is ur name?");
+function startCombat(name) {
+	var userHealth = 40;
+	var enemyHealth = 10;
+	var wins = 0;
+	
     while (playing = true) {
-       if (attackOrQuit === "attack") {
+		var attackOrQuit = prompt("do u wanna attack or quit?");
+		if (attackOrQuit === "attack") {
           if (wins === 3) {
               console.log("u won the war");
               break;
@@ -33,10 +39,9 @@ function startCombat() {
 			enemyHealth = 10;
 			console.log("u won a battle");
            }
-      } else if (attackOrQuit === "quit") {
+		} else if (attackOrQuit === "quit") {
             console.log("thx 4 playing");
             break;
-	  }
-	var attackOrQuit = prompt("do u wanna attack or quit?");
- }
+	  	}
+ 	}
 }
