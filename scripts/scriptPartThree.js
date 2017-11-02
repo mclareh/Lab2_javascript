@@ -1,44 +1,39 @@
-var character = {
-	wins: 0,
-	health: 40,
-	healsRemaining: 2,
-	name: prompt("whats ur name?"),
-	generateAttackDamage: function() {
-		return Math.floor(Math.random() * 3) + 1;
-	},
-	heal: function() {
-		if (this.healsRemaining === 0) {
-			return console.log("no heals left");
-		}
-		this.healsRemaining --;
-		this.health += Math.floor(Math.random() * 10) + 1;
-	}
-};
-
-var enemy = {
-	name: "evil enemy",
-	health: 10,
-	generateAttackDamage: function() {
-		return Math.floor(Math.random() * 3) + 1;
-	}	
-};
-
 function startGame() {
   var play = prompt("do u wanna play?");
 	if (play === "yes") {
-    	return startCombat();
+		var character = {
+			wins: 0,
+			health: 40,
+			healsRemaining: 2,
+			name: prompt("whats ur name?"),
+			generateAttackDamage: function() {
+				return Math.floor(Math.random() * 3) + 1;
+			},
+			heal: function() {
+				if (this.healsRemaining === 0) {
+					return console.log("no heals left");
+				}
+				this.healsRemaining --;
+				this.health += Math.floor(Math.random() * 10) + 1;
+			}
+		};
+		var enemy = {
+			name: "evil enemy",
+			health: 10,
+			generateAttackDamage: function() {
+				return Math.floor(Math.random() * 3) + 1;
+			}	
+		};
+		startCombat(character, enemy);
 	} else {
 		console.log("ok");
 	}
 } startGame();
 
-function startCombat() {
-	
-	var playing = true;
-	
-	while (playing = true) {
+function startCombat(character, enemy) {
+	var playing = true;	
+	while (playing) {
 		var attackOrQuit = prompt("do u wanna attack, heal or quit?");
-		
 		if (attackOrQuit === "attack") {
           if (character.wins === 5) {
               console.log("u won the war");
@@ -48,7 +43,6 @@ function startCombat() {
               console.log("u lost");
               break;
            }
-
 			enemy.health -= character.generateAttackDamage();
 			character.health -= enemy.generateAttackDamage();			console.log(character.name + " health is " + character.health);		console.log(enemy.name + " health is " + enemy.health);
   

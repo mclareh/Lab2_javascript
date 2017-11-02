@@ -1,8 +1,36 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="styles/style1.css">
 	</head>
 	<body>
-		<script type="text/javascript" src="scripts/scriptPartThree.js"></script>
+		<div class="start">
+			<button value="startgame" onclick="updateInfo()">START GAME</button>
+		</div>
+		<div class="display">
+			<div class="name">
+			</div>
+			<div class="rheals">
+			</div>
+			<div class="health">
+			</div>
+			<div class="wins">
+			</div>
+			<div class="ename">
+			</div>
+			<div class="ehealth">
+			</div>
+		</div>
+		<div class="buttons">
+			<button value="attack" onclick="startCombat(this.value)">ATTACK</button>
+			<button value="heal" onclick="startCombat(this.value)">HEAL</button>
+			<button value="quit" onclick="startCombat(this.value)">QUIT</button>
+		</div>
+		<div class="bottom">
+			<h4>PLAYER STATS</h4>
+			<div class="stats">
+			</div>
+		</div>	
+		<script type="text/javascript" src="scripts/scriptPartFour.js"></script>
 	</body>
 </html>
